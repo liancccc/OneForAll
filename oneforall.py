@@ -13,7 +13,7 @@ from datetime import datetime
 
 
 import export
-from brute import Brute
+# from brute import Brute
 from common import utils, resolve, request
 from modules.collect import Collect
 from modules.srv import BruteSRV
@@ -160,13 +160,13 @@ class OneForAll(object):
         srv = BruteSRV(self.domain)
         srv.run()
 
-        if self.brute:
-            # Due to there will be a large number of dns resolution requests,
-            # may cause other network tasks to be error
-            brute = Brute(self.domain, word=True, export=False)
-            brute.enable_wildcard = self.enable_wildcard
-            brute.quite = True
-            brute.run()
+#         if self.brute:
+#             # Due to there will be a large number of dns resolution requests,
+#             # may cause other network tasks to be error
+#             brute = Brute(self.domain, word=True, export=False)
+#             brute.enable_wildcard = self.enable_wildcard
+#             brute.quite = True
+#             brute.run()
 
         utils.deal_data(self.domain)
         # Export results without resolve
